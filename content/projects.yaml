@@ -1,0 +1,21 @@
+- name: ClearDarkSky
+  url: https://www.cleardarksky.co.uk
+  description: Display locations where users can stargaze within the next 5 days.
+  status: live
+  tags:
+    - Python
+    - Docker
+    - Terraform
+    - Geospatial Data
+    - Weather Modelling
+  icon: website
+
+- name: CloudCastAPI
+  url: https://github.com/cloudCastAPI
+  description: Self-hosted weather API distributing data from publicly available NOAA weather models.
+  status: in progress
+  tags:
+    - Python
+    - Docker
+    - FastAPI
+  icon: github
