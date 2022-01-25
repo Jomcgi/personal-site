@@ -10,8 +10,8 @@
     - Weather Modelling
   icon: website
 
-- name: CloudCastAPI
-  url: https://github.com/cloudCastAPI
+- name: cloudCastAPI
+  url: https://github.com/jomcgi/cloudCastAPI
   description: Self-hosted weather API distributing data from publicly available NOAA weather models.
   status: in progress
   tags:
