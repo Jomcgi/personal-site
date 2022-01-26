@@ -21,9 +21,9 @@ jobs:
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@v2
         with:
-          find: "orange-500"
-          replace: "yellow-500"
-          regex: false
+          find: "bg-orange-500"
+          replace: "bg-yellow-500"
+          regex: true
       - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
