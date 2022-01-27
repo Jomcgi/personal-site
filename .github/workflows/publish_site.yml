@@ -13,19 +13,13 @@ jobs:
 #         with:
 #           access-token: ${{ secrets.ACCESS_TOKEN }}
 #           deploy-branch: gh-pages
-      - uses: actions/checkout@v2
-        with:
-          repository: 'jomcgi/personal-site'
-          ref: 'gh-pages'
-          token:  ${{ secrets.ACCESS_TOKEN }}
-      - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v2
-        with:
-          find: "bg-orange-500"
-          replace: "bg-yellow-500"
-          regex: true
-      - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
-          branch: gh-pages
+
+      - name: fix visual bug
+        run: |
+          git checkout gh-pages
+          git pull
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git grep -l 'bg-orange-500' | xargs sed -i 's/bg-orange-500/bg-yellow-500/g'
+          git commit -m "new date commit"
+          git push origin gh-pages
