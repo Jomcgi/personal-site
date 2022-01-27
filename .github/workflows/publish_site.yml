@@ -22,7 +22,7 @@ jobs:
       - name: Checkout develop
         uses: actions/checkout@v1
         with:
-          ref: 'develop'       
+          ref: 'gh-pages'       
 
       - name: fix visual bug
         run: |
