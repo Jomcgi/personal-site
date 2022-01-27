@@ -29,5 +29,5 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
           git grep -l 'bg-orange-500' | xargs sed -i 's/bg-orange-500/bg-yellow-500/g'
-          git commit -m "new date commit"
+          git commit -am "new date commit"
           git push origin gh-pages
