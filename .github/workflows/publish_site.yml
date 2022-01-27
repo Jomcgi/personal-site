@@ -8,18 +8,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: enriikke/gatsby-gh-pages-action@v2
+      - name: Checkout main
+        uses: actions/checkout@v1
+      - name: Publish to gh-pages
+        uses: enriikke/gatsby-gh-pages-action@v2
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages
       
-      - name: Checkout develop
+      - name: Checkout gh-pages
         uses: actions/checkout@v1
         with:
           ref: 'gh-pages'       
 
-      - name: fix visual bug
+      - name: fix visual bug on gh-pages
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git config user.name "jomcgi"
@@ -27,6 +29,6 @@ jobs:
           # Gatsby template does not render bg-orange-500 for project status indicator
           export str_to_replace=".bg-green-500{--tw-bg-opacity:1;background-color:rgba(16,185,129,var(--tw-bg-opacity))}"
           export replacement_str=".bg-green-500{--tw-bg-opacity:1;background-color:rgba(16,185,129,var(--tw-bg-opacity))}.bg-orange-500{--tw-bg-opacity:1;background-color:rgba(237,137,14,var(--tw-bg-opacity))}"
-          git grep -l $str_to_replace | xargs sed -i 's/$str_to_replace/$replacement_str/g'
+          git grep -l $str_to_replace | xargs sed -i "s/$str_to_replace/$replacement_str/g"
           git commit -am "Fixed visual bug for personal-site deployment"
           git push
