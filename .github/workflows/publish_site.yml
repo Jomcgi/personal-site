@@ -26,6 +26,7 @@ jobs:
 
       - name: fix visual bug
         run: |
+          git remote set-url origin https://x-access-token:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git config user.name "jomcgi"
           git config user.email "joe.mcginley2@gmail.com"
           git grep -l 'bg-orange-500' | xargs sed -i 's/bg-orange-500/bg-yellow-500/g'
