@@ -26,8 +26,8 @@ jobs:
 
       - name: fix visual bug
         run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
+          git config user.name "jomcgi"
+          git config user.email "joe.mcginley2@gmail.com"
           git grep -l 'bg-orange-500' | xargs sed -i 's/bg-orange-500/bg-yellow-500/g'
           git commit -am "Fixed visual bug for personal-site deployment"
           git push
