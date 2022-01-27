@@ -14,10 +14,18 @@ jobs:
 #           access-token: ${{ secrets.ACCESS_TOKEN }}
 #           deploy-branch: gh-pages
 
+      - name: Checkout master
+        uses: actions/checkout@v1
+        with:
+          ref: 'master'
+      
+      - name: Checkout develop
+        uses: actions/checkout@v1
+        with:
+          ref: 'develop'       
+
       - name: fix visual bug
         run: |
-          git checkout gh-pages
-          git pull
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
           git grep -l 'bg-orange-500' | xargs sed -i 's/bg-orange-500/bg-yellow-500/g'
