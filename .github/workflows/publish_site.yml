@@ -25,6 +25,8 @@ jobs:
           git config user.name "jomcgi"
           git config user.email "joe.mcginley2@gmail.com"
           # Gatsby template does not render bg-orange-500 for project status indicator
-          git grep -l 'bg-orange-500' | xargs sed -i 's/bg-orange-500/bg-yellow-500/g'
+          export str_to_replace=".bg-green-500{--tw-bg-opacity:1;background-color:rgba(16,185,129,var(--tw-bg-opacity))}"
+          export replacement_str=".bg-green-500{--tw-bg-opacity:1;background-color:rgba(16,185,129,var(--tw-bg-opacity))}.bg-orange-500{--tw-bg-opacity:1;background-color:rgba(237,137,14,var(--tw-bg-opacity))}"
+          git grep -l $str_to_replace | xargs sed -i 's/$str_to_replace/$replacement_str/g'
           git commit -am "Fixed visual bug for personal-site deployment"
           git push
