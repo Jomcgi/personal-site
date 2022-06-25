@@ -13,7 +13,7 @@ jobs:
       - name: Publish to gh-pages
         uses: enriikke/gatsby-gh-pages-action@v2
         with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
+          access-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-branch: gh-pages
       
       - name: Checkout gh-pages
@@ -23,7 +23,7 @@ jobs:
 
       - name: fix visual bug on gh-pages
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git config user.name "jomcgi"
           git config user.email "joe.mcginley2@gmail.com"
           # Gatsby template does not render bg-orange-500 for project status indicator
