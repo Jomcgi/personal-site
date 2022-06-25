@@ -2,10 +2,10 @@
   initials: JM
   name: Joe McGinley
   profession: Senior Data Engineer
-  image: images/profile.jpg
+  image: images/profile.png
   location: Glasgow, UK
   relocation: true
-  company: Hometree
+  company: Amido
   for_hire: true
   focus: Scalable Data Solutions
   focus_url: https://github.com/jomcgi
